@@ -1,0 +1,17 @@
+﻿@model Company
+
+<h3 class="alert-danger">The deleted data can't be restored , do you want to proceed ?'</h3>
+
+
+<form action="~/Company/Delete" method="post">
+
+    @Html.HiddenFor(c =>c.ID)
+
+    <select name="Choice" class="form-control">
+        <option class="form-control" value="y">Yes</option>
+        <option class="form-control" value="n">No</option>
+    </select>
+    <input type="submit" class="btn btn-danger" />
+</form>
+
+<a href="~/Company/Index" class="btn btn-primary">Cancel & Go Back to All Companies</a>

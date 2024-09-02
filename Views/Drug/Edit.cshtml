@@ -1,0 +1,90 @@
+﻿
+@model Drug
+
+
+<form asp-action="Edit" asp-controller="Drug" method="post">
+
+
+	<div class="form-group">
+		<label asp-for="ID"></label>
+		<input asp-for="ID" class="form-control" value="@Model.ID" hidden />
+	</div>
+
+
+	<div class="form-group">
+		<label asp-for="Name"></label>
+		<input asp-for="Name" class="form-control" value="@Model.Name" />
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="ManufactureDate"></label>
+		<input asp-for="ManufactureDate" class="form-control" value="@Model.ManufactureDate" />
+		<span asp-validation-for="ManufactureDate" class="text-danger"></span>
+
+	</div>
+
+	<div class="form-group">
+		<label asp-for="ExpiryDate"></label>
+		<input asp-for="ExpiryDate" class="form-control" value="@Model.ExpiryDate" />
+		<span asp-validation-for="ExpiryDate" class="text-danger"></span>
+
+	</div>
+
+
+	<div class="mb-3">
+		<label asp-for="Company" class="form-label"></label>
+		
+		<select asp-items="ViewBag.comps" asp-for="CompanyID" value="@Model.CompanyID" class="form-control">
+			<option value="">-- Select a Company --</option>
+
+		</select>
+		<span asp-validation-for="CompanyID" class="text-danger"></span>
+
+	</div>
+
+
+	<div class="form-group">
+		<label asp-for="Image"></label>
+		<input asp-for="Image" class="form-control" value="@Model.Image" />
+	</div>
+
+	<div class="form-group">
+		<input type="submit" class="btn btn-dark" value="Edit" />
+	</div>
+
+</form>
+<br/>
+<a asp-action="Index" asp-controller="Drug" class="btn btn-primary text-white">Go Back To All Drugs</a>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}
+
+
+
+@* @using (Html.BeginForm("Edit", "Drug", FormMethod.Post))
+{
+	@Html.HiddenFor(d => d.ID)
+	
+	<div class="form-group">
+		@Html.LabelFor(d => d.Name, htmlAttributes : new {@class = "control-label"})
+		@Html.TextBoxFor(d => d.Name , new {@class = "form-control"})
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(d => d.Price, htmlAttributes: new { @class = "control-label" })
+		@Html.TextBoxFor(d => d.Price,"{0:C}", new { @class = "form-control" })
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(d => d.Description, htmlAttributes: new { @class = "control-label" })
+		@Html.TextBoxFor(d => d.Description, new { @class = "form-control" })
+	</div>
+
+	<div class="form-group">
+		<input type="submit" class="btn btn-dark" value="Edit" />
+	</div>
+}
+<a href="@Url.Action("ShowAll", "Drug")" class="btn btn-primary text-white">Go Back To All Drugs</a>
+ *@

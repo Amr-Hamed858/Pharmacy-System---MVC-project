@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Drug>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Company name</th>
+            <th scope="col">Manufacture Date</th>
+            <th scope="col">Expiry Date</th>
+            <th scope="col">Image</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Drug item in Model)
+        {
+            <tr>
+
+                <th scope="row">@item.ID</th>
+                <td>@item.Name</td>
+                <td>@item.Company.Name</td>
+                <td>@item.ManufactureDate</td>
+                <td>@item.ExpiryDate</td>
+                <td>
+                    <img src="~/Images/@item.Image" width="80" height="80" />
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-controller="Drug" asp-route-id="@item.ID" class="btn btn-dark text-white"> Edit </a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-controller="Drug" asp-route-id="@item.ID" class="btn btn-danger text-white"> Delete </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Drug/Create" class="btn btn-primary text-white">Add New Drug</a>
+

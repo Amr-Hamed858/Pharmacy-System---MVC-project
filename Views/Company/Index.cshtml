@@ -1,0 +1,28 @@
+﻿@model List<Company>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Company item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Name</td>
+                <td>
+                    <a asp-action="Edit" asp-controller="Company" asp-route-id="@item.ID" class="btn btn-dark text-white"> Edit </a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-controller="Company" asp-route-id="@item.ID" class="btn btn-danger text-white"> Delete </a>
+                </td>
+            </tr>            
+        }
+    </tbody>
+</table>
+<a href="~/Company/Create" class="btn btn-primary">Add Company</a>

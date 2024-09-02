@@ -1,0 +1,13 @@
+﻿@model Company
+
+<form action="~/Company/Create" method="post">
+
+	<label asp-for="Name"></label>
+	<input asp-for="Name" class="form-control" />
+	<span asp-validation-for="Name" class="alert-danger"></span>
+	<br />
+	<input type="submit" value="Add" class="btn btn-success">
+
+	</form>
+	<br />
+	<a href="~/Company/Index" class="btn btn-danger">Cancel & back to Companies</a>
